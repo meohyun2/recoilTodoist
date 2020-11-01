@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import {useSetRecoilState} from 'recoil';
 
-import {cardListState} from './CardList';
-import {CardProps} from './Card';
+import type {Card} from '../Store';
+import {cardListState} from '../Store';
 
 interface EditorState {
   title: string;
@@ -44,7 +44,8 @@ const Editor =()=> {
         {
           title: todoData.title,
           text: todoData.text,
-          id: getId()
+          id: getId(),
+          date: new Date()
         }
       ];
     });

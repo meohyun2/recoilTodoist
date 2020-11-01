@@ -1,22 +1,18 @@
 import React from 'react';
-import {atom, RecoilState} from 'recoil';
 import styled from 'styled-components';
 import {useRecoilValue} from 'recoil';
 
-import Card,{CardProps} from './Card';
-
-export const cardListState: RecoilState<CardProps[]> = atom({
-  key: 'CardList',
-  default: [] as CardProps[],
-});
+import CardItem from './Card';
+import {cardListState} from '../Store';
+import type {Card} from '../Store';
 
 const CardList =()=> {
-  const cardData: CardProps[] = useRecoilValue(cardListState);
+  const cardData: Card[] = useRecoilValue(cardListState);
   return (
     <Container>
       {cardData.length > 0 ? 
         cardData.map((item, index)=>{
-          return <Card id={item.id} title={item.title} text={item.text} key={index}/>
+          return <CardItem id={item.id} title={item.title} text={item.text} key={index}/>
         })
         :
         null
@@ -28,7 +24,9 @@ const CardList =()=> {
 const Container = styled.div`
   display: flex;
   padding: 20px, 100px, 20px, 100px;
+  width: 100%;
   flex-direction: column;
+  align-items: center;
 `;
 
 export default CardList;

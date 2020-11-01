@@ -2,16 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import {useRecoilState} from 'recoil';
 
-import {cardListState} from './CardList';
+import type {Card} from '../Store';
+import {cardListState} from '../Store';
 // 아톰을 받아서 이를 띄워주는 리스트를 생성하자. 그리고 이를 삭제할 수 있는 버튼을 추가한다.
 
-export interface CardProps {
-  title: string;
-  text: string;
-  id: number;
-}
-
-const Card =({title, text, id}: CardProps)=> {
+const CardItem =({title, text, id}: Card)=> {
   const [todoList, setTodoList] = useRecoilState(cardListState);
   const deleteId = todoList.findIndex((item)=> item.id === id);
 
@@ -36,7 +31,7 @@ const CardText = styled.h5``;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 30%;
   border-radius: 20px;
   background-color: gainsboro;
   border-width: 1px;
@@ -53,4 +48,4 @@ const DeleteButton = styled.button`
   margin: 10px;
 `;
 
-export default Card;
+export default CardItem;

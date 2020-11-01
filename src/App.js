@@ -1,5 +1,5 @@
 import React from 'react';
-import {RecoilRoot, atom, selector, useRecoilState, useRecoilValue} from 'recoil';
+import {RecoilRoot} from 'recoil';
 import ReactTodoist from './View/ReactTodoist';
 import styled from 'styled-components';
 import GlobalStyle from '../src/globalStyle';
