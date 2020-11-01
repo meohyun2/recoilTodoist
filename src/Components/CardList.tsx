@@ -16,7 +16,7 @@ const CardList =()=> {
     <Container>
       {cardData.length > 0 ? 
         cardData.map((item, index)=>{
-          return <Card title={item.title} text={item.text} key={index}/>
+          return <Card id={item.id} title={item.title} text={item.text} key={index}/>
         })
         :
         null

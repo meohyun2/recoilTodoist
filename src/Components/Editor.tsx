@@ -5,8 +5,19 @@ import {useSetRecoilState} from 'recoil';
 import {cardListState} from './CardList';
 import {CardProps} from './Card';
 
+interface EditorState {
+  title: string;
+  text: string;
+}
+
+let id: number = 0;
+
+const getId = (): number => {
+  return id++;
+}
+
 const Editor =()=> {
-  const [todoData, setTodoText] = useState<CardProps>({
+  const [todoData, setTodoText] = useState<EditorState>({
     title: '',
     text: '',
   });
@@ -15,20 +26,27 @@ const Editor =()=> {
   const onChangeTitleEditor =(event: any)=> {
     setTodoText({
       ...todoData,
-      title: event.target.value
+      title: event.target.value,
     });
   }
 
   const onChangeTextEditor =(event: any)=> {
     setTodoText({
       ...todoData,
-      text: event.target.value
+      text: event.target.value,
     })
   }
 
   const onSubmitEditor = (): any => {
     setCardListState((currentList)=>{
-      return currentList.concat(todoData);
+      return [
+        ...currentList,
+        {
+          title: todoData.title,
+          text: todoData.text,
+          id: getId()
+        }
+      ];
     });
     setTodoText({title: '', text: ''});
   }
