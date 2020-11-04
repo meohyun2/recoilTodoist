@@ -10,6 +10,7 @@ const CardList =()=> {
   const cardData: Card[] = useRecoilValue(cardListState);
   return (
     <Container>
+      <Title>투두리스트</Title>
       {cardData.length > 0 ? 
         cardData.map((item, index)=>{
           return <CardItem id={item.id} title={item.title} text={item.text} key={index}/>
@@ -20,6 +21,10 @@ const CardList =()=> {
     </Container>
   )
 }
+
+const Title = styled.h2`
+  color: blue;
+`;
 
 const Container = styled.div`
   display: flex;

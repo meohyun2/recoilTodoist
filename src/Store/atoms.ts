@@ -11,3 +11,8 @@ export const cardListState: RecoilState<Card[]> = atom({
   key: 'CardList',
   default: [] as Card[],
 });
+
+export const garbageState: RecoilState<Card[]> = atom({
+  key: 'GarbageList',
+  default: [] as Card[],
+});
