@@ -3,7 +3,7 @@ import {atom, RecoilState} from 'recoil';
 export interface Card {
   title: string;
   text: string;
-  id: number;
+  id?: number;
   date?: Date;
 }
 

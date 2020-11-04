@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import {useSetRecoilState} from 'recoil';
 
-import type {Card} from '../Store';
 import {cardListState} from '../Store';
 
 interface EditorState {

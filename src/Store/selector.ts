@@ -1,5 +1,5 @@
 import {selector} from 'recoil';
-import {Card, cardListState} from './atoms';
+import {Card, cardListState, garbageState} from './atoms';
 
 export const getRecentCard = selector({
   key: "showRecentUsedTime",
@@ -11,3 +11,11 @@ export const getRecentCard = selector({
     }
   }
 })
+
+export const garbageDestroyer = selector({
+  key: "garbageDestoryer",
+  get: ({get}) => {
+    return garbageState;
+  },
+  set: ({set}): void => set(garbageState, [])
+});

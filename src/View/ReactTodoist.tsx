@@ -5,6 +5,7 @@ import Editor from '../Components/Editor';
 import CardList from '../Components/CardList';
 import GarbageList from '../Components/TrashList';
 import RecentDateAlert from '../Components/RecentDateAlert';
+import GarbageDestory from '../Components/GarbageDestroy';
 
 const ReactTodoist =()=> {
   return(
@@ -16,6 +17,7 @@ const ReactTodoist =()=> {
           <CardList/>
         </Wrapper>
         <RecentDateAlert/>
+        <GarbageDestory/>
       </Container>
     </>
   )
